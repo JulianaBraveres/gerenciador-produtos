@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Login{%endblock%}</title>
+</head>
+<body>
+    <div>
+        {% for product in products %}
+            <div class="container">
+                <p>{{ product.id }}</p>
+                <p>{{ product.name }}</p>
+                <p>{{product.stock}}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
