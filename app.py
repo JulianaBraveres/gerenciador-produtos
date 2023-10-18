@@ -38,7 +38,7 @@ def registro():
 				return redirect('/login')
 			
 		elif request.method=='GET':
-			return render_template('registro.html')
+			return render_template('signup.html')
 		
 @app.route('/dashboard')
 def dashboard():
