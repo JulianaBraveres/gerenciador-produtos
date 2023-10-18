@@ -42,7 +42,7 @@ def registro():
 		
 @app.route('/dashboard')
 def dashboard():
-	toque = {}  # Dicionário para armazenar o estoque da loja
+	estoque = {}  # Dicionário para armazenar o estoque da loja
 
 def adicionar_item():
     nome = input("Digite o nome do item: ")
