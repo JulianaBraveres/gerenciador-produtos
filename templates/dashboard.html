@@ -2,15 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Estoque</title>
-    <link rel="stylesheet" href="/statics/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
     
     <!-- Estilos customizados para esse template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="/static/node_modules/bootstrap/dist/css/cover.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
+    
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
@@ -23,20 +25,23 @@
         </div>
       </header>
 
-      <main>
+      <main class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center">
               {{name}}
               <span class="badge badge-primary badge-pill">{{quantity}}</span>
             </li>
           </ul>
+          </div>
       </main>
-
+    
       <footer>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Deletar</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" >Editar</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" >Adicionar</button>
       </footer>
+    </div>
 
       
     <!-- Principal JavaScript do Bootstrap
@@ -44,10 +49,8 @@
     <!-- Foi colocado no final para a página carregar mais rápido -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="/static/node_modules/bootstrap/dist/js/popper.min.js"></script>
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js.map"></script>
     </body>
 </html>
-
-usando badges
-flush

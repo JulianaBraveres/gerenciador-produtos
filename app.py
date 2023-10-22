@@ -49,7 +49,10 @@ def registro():
 def dashboard():
     if request.method=='POST':
         stock = {}  # Dicionário para armazenar o estoque da loja
-        return render_template(dashboard.html)
+        return render_template('dashboard.html')
+
+    elif request.method=='GET':
+        return render_template('dashboard.html')
 
 def adicionar_item(name, quantity):
         if(request.form['name'] != ''):
