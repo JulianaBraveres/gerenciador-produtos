@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect, request
 import func as dbHandler
 import models 
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 app.secret_key='__privatekey__'
+bootstrap = Bootstrap(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -88,7 +90,7 @@ def remover_estoque(name):
         return print("Produto não existe. Nome inválido")
 
 
-app.run()
+app.run(debug=True)
 
 '''
     nome = input("Digite o nome do item que deseja editar: ")
