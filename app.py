@@ -17,12 +17,12 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		dbHandler.retrieveUsers(username, password)
-		users = dbHandler.retrieveUsers()
-		if not dbHandler.users:
+		users = dbHandler.retrieveUser()
+		if not users:
 			return render_template('login.html')
 		
-		else:
-			return print("Olá") # redirect('/dashboard', name=username)
+		elif users:
+			return redirect('/dashboard')
 		
 	else:
 		request.method=='GET'
@@ -35,11 +35,12 @@ def registro():
 			if(request.form['username']!='' and request.form['password']!=''):
 				username = request.form['username']
 				password = request.form['password']
+                                users = dbHandler.retrieveUser()
 				
-				if dbHandler.users:
+				if users:
 					return print('Conta já existe')
 				
-				if not dbHandler.users:
+				if not users:
 					dbHandler.insertUser(username, password)
 				
 				return redirect('/')
