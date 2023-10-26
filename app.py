@@ -17,7 +17,7 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		dbHandler.retrieveUsers(username, password)
-		users = dbHandler.retrieveUser()
+		users = dbHandler.retrieveUsers()
 		if not users:
 			return render_template('login.html')
 		
@@ -35,7 +35,7 @@ def registro():
 			if(request.form['username']!='' and request.form['password']!=''):
 				username = request.form['username']
 				password = request.form['password']
-                                users = dbHandler.retrieveUser()
+                                users = dbHandler.retrieveUsers(username, password)
 				
 				if users:
 					return print('Conta já existe')
@@ -57,20 +57,6 @@ def dashboard():
     elif request.method=='GET':
         return render_template('dashboard.html')
 
-def adicionar_item(name, quantity):
-        if(request.form['name'] != ''):
-            name = request.form['name']
-
-            if dbHandler.products and stock.get(name):
-                return print("Produto inválido. Nome já existe!")
-
-            if not dbHandler.products:
-                dbHandler.insertProduct(name, quantity)
-                dashboard.stock[name] = quantity
-                print(f"{name} foi adicionado ao estoque com uma quantidade de {quantity}.")
-                return render_template(dashboard.html)
-
-
 def editar_item(name, quantity):
     if(request.form[''] and stock.get(name)):
         dbHandler.editProduct(quantity)
@@ -90,6 +76,20 @@ def remover_estoque(name):
     else:
         return print("Produto não existe. Nome inválido")
 
+@app.route('/addproduct')
+
+def adicionar_item(name, quantity):
+        if(request.form['name'] != ''):
+            name = request.form['name']
+
+            if dbHandler.products and stock.get(name):
+                return print("Produto inválido. Nome já existe!")
+
+            if not dbHandler.products:
+                dbHandler.insertProduct(name, quantity)
+                dashboard.stock[name] = quantity
+                print(f"{name} foi adicionado ao estoque com uma quantidade de {quantity}.")
+                return render_template(dashboard.html)
 
 app.run(debug=True)
 
