@@ -7,7 +7,7 @@ def insertUser(username,password):
     con.commit()
     con.close()
 
-def retrieveUsers():
+def retrieveUsers(username, password):
 	con = sql.connect("database.db")
 	cur = con.cursor()
 	cur.execute("SELECT username, password FROM users")
