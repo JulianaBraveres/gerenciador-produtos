@@ -4,7 +4,7 @@ class Product:
         self.quantity = quantity
 
     def editar_item(name, quantity):
-        if(request.form[''] and stock.get(name)):
+        if(request.form['name'] != '' and stock.get(name)):
             dbHandler.editProduct(quantity)
             dashboard.stock[name] = quantity
             return print("Quantidade atualizada com sucesso")
