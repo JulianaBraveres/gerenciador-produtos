@@ -33,7 +33,7 @@ class Product:
                 dbHandler.insertProduct(name, quantity)
                 dashboard.stock[name] = quantity
                 print(f"{name} foi adicionado ao estoque com uma quantidade de {quantity}.")
-                return render_template(dashboard.html)
+                return render_template('dashboard.html')
 
 
 
