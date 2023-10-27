@@ -14,14 +14,14 @@ def index():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
 	if request.method=='POST':
-		username = request.form['username']
+		username = request.form['username'] #username recebe o nome vindo do form username
 		password = request.form['password']
-		dbHandler.retrieveUsers(username, password)
+		dbHandler.retrieveUsers(username, password) #users recebe a funcao que recebe o nome e a senha como parametros
 		users = dbHandler.retrieveUsers()
-		if not users:
-			return render_template('login.html')
+		if not users: #se users n existir
+			return render_template('login.html') 
 		
-		elif users:
+		elif users: #se users existir, renderiza o dashboard
 			return redirect('/dashboard')
 		
 	else:
@@ -32,7 +32,7 @@ def login():
 @app.route('/signup', methods= ['POST', 'GET'])
 def registro():
 		if request.method=='POST':
-			if(request.form['username']!='' and request.form['password']!=''):
+			if(request.form['username']!='' and request.form['password']!=''): #se as áreas do form não forem vazias, username receber o input do form com nome username
 				username = request.form['username']
 				password = request.form['password']
                                 users = dbHandler.retrieveUsers(username, password)
@@ -75,8 +75,6 @@ def remover_estoque(name):
 
     else:
         return print("Produto não existe. Nome inválido")
-
-@app.route('/addproduct')
 
 def adicionar_item(name, quantity):
         if(request.form['name'] != ''):
