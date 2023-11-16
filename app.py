@@ -41,8 +41,8 @@ def signup():
                 for user in users:
                       if user[0]==username and user[1]==password:
                             return redirect('/signup')
-                dbHandler.insertUser(username, password)
-                return redirect('/login') #render_template('/teste.html', users = users)
+            dbHandler.insertUser(username, password)
+            return redirect('/login') #render_template('/teste.html', users = users)
 			
     #elif request.method=='GET':
     return render_template('signup.html')
